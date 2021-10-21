@@ -1,30 +1,27 @@
 template < typename T > 
-class SP
-{
+class SP {
     private:
-    T*    ptr; // Generic pointer to be stored
+        T*    ptr; // Generic pointer to be stored
     public:
-    SP(T* pValue) : ptr(pValue)
-    {
-    }
-    ~SP()
-    {
-        delete ptr;
-    }
+        SP(T* pValue) : ptr(pValue) { }
+        ~SP()
+        {
+            delete ptr;
+        }
 
-    T& operator* ()
-    {
-        return *ptr;
-    }
+        T& operator* ()
+        {
+            return *ptr;
+        }
 
-    T* operator-> ()
-    {
-        return ptr;
-    }
+        T* operator-> ()
+        {
+            return ptr;
+        }
 };
 
-void main()
-{
+int main() {
     SP<int> p(new int);
     *p = 25;
+    return 0;
 }
