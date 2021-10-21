@@ -10,7 +10,7 @@ class RC
         count++;
     }
 
-    int RelRef()
+    int DelRef()
     {
         // Decrement the reference count and
         // return the reference count.
@@ -28,18 +28,18 @@ private:
 public:
 	SharedPtr() : ptr(nullptr), reference(nullptr) // default constructor
 	{
-        // Create a new reference 
-        reference = new RC();
-        // Increment the reference count
-        reference->AddRef();
+        	// Create a new reference 
+		reference = new RC();
+		// Increment the reference count
+		reference->AddRef();
 	}
 
 	SharedPtr(T * ptr) : ptr(ptr), reference(nullptr) // constructor
 	{
-        // Create a new reference 
-        reference = new RC();
-        // Increment the reference count
-        reference->AddRef();
+		// Create a new reference 
+		reference = new RC();
+		// Increment the reference count
+		reference->AddRef();
 	}
 
 	/*** Copy Semantics ***/
@@ -50,7 +50,7 @@ public:
 		if (nullptr != obj.ptr)
 		{
 			// Increment the reference count
-        reference->AddRef(); // if the pointer is not null, increment the refCount
+        		reference->AddRef(); // if the pointer is not null, increment the reference count
 		}
 	}
 
@@ -64,7 +64,7 @@ public:
 		if (nullptr != obj.ptr)
 		{
 			// Increment the reference count
-        reference->AddRef(); // if the pointer is not null, increment the refCount
+        		reference->AddRef(); // if the pointer is not null, increment the reference count
 		}
 	}
 
@@ -111,7 +111,7 @@ private:
 	void Release()
 	{
 		
-		if (reference->RelRef() == 0)
+		if (reference->DelRef() == 0)
 		{
 			if (nullptr != ptr)
 				delete ptr;
